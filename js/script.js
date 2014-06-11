@@ -33,7 +33,7 @@ FB.getLoginStatus(function(response) {
 
     
     FB.api('/me/picture?type=large', function(response) { // normal/large/squere 
-      var str="<img id='preview1' src="+ response.data.url +">";
+      var str="<img id='preview1' crossorigin='anonymous' src="+ response.data.url +">";
       $("#imgIn").append(str);
     });
     
