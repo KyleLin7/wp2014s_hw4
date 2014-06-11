@@ -10,9 +10,10 @@ FB.init({
 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     alert("connected");
-  	var uid = response.authResponse.userID;
-        var accessToken = response.authResponse.accessToken;
-        window.authToken = accessToken;
+
+    document.getElementById('sentimg').addEventListener('click', function(){
+      PostImageToFacebook(response.authResponse.accessToken);
+    });
 
     //呼叫api把圖片放到#preview IMG tag 內
     FB.api('/me', function (response) {
