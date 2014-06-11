@@ -136,8 +136,8 @@ FB.getLoginStatus(function(response) {
       if(isDragging){ //當拖拉為True時
           	        ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
 			var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
-			img2.src = $('#overlay').val();
-      		        img3.src = $('#typo').val();
+			// img2.src = $('#overlay').val();
+   //    		        img3.src = $('#typo').val();
 			profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
 		//	canvas.width = profileIMG.width;//設定canvas的大小需符合profileimg的大小
 		//	canvas.height = profileIMG.height;
@@ -190,8 +190,10 @@ FB.getLoginStatus(function(response) {
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
 function PostImageToFacebook(authToken) {
+ 
   authToken = window.token;
-	$('.info').append('<img src="img/loading.gif"/>')//載入loading的img
+	
+  $('.info').append('<img src="img/loading.gif"/>')//載入loading的img
     var canvas = document.getElementById("canvas");//找canvas
     var imageData = canvas.toDataURL("image/png");//把canvas轉換PNG
     try {
